@@ -1,0 +1,20 @@
+{
+  "name": "demobot",
+  "version": "1.0.0",
+  "description": "bu birinchi super botim",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "super",
+    "demo",
+    "bot"
+  ],
+  "author": "Abdulvoris",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "telebot": "^1.4.1"
+  }
+}
