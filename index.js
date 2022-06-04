@@ -1,5 +1,7 @@
 TELEGRAM_BOT_TOKEN = '1861955507:AAGx8fybLn2wi1y3I-oOHj8dhbK1liQOhB8';
 const TeleBot = require('telebot');
+const express = require('express');
+const app = express();
 const bot = new TeleBot(TELEGRAM_BOT_TOKEN);
 const chatIds = [];
 const CronJob = require('cron').CronJob;
@@ -10,7 +12,7 @@ const job = new CronJob('0/5 * * * * *', function() {
   });
 }, null, true);
 
-
+app.use(express.json());
 bot.on('text', (msg) => msg.reply.text('Kelgan habar: ' + msg.text));
 
 bot.on(['/start'], (msg) => {
@@ -28,3 +30,6 @@ bot.on(['/stop'], (msg) => {
 });
 
 bot.start();
+
+const port = process.env.PORT || 4000;
+app.listen(port, () => console.log(`Listening on port ${port}...`));
